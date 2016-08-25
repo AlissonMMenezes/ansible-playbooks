@@ -1,7 +1,7 @@
 ---
 - hosts: teste
   tasks:
-  - name: Dependencias do SO do Terminus
+  - name: Installing OS Dependencies
     apt: name={{item}}
     with_items:
       - python
@@ -9,7 +9,7 @@
       - python-setuptools
       - python-dev
       - sqlite3
-  - name: Intalling Pyramid Dependencias
+  - name: Intalling Pyramid Dependencies
     easy_install: name=pyramid_mailer
   - name: Clonning application
     git: 
