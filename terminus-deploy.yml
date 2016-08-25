@@ -1,0 +1,23 @@
+---
+- hosts: teste
+  tasks:
+  - name: Dependencias do SO do Terminus
+    apt: name={{item}}
+    with_items:
+      - python
+      - python-dev
+      - python-setuptools
+      - python-dev
+      - sqlite3
+  - name: Intalling Pyramid Dependencias
+    easy_install: name=pyramid_mailer
+  - name: Clonning application
+    git: 
+       repo: "https://github.com/AlissonMMenezes/Terminus"
+       dest: "/srv/Terminus"
+  - name: Installing application
+    command: python setup.py install chdir=/srv/Terminus
+  - name: "Running application"
+    shell: pserve development.ini --reload & >> /dev/null 2>&1
+    args:
+      chdir: /srv/Terminus       
