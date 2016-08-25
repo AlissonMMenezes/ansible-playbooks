@@ -1,5 +1,7 @@
 ---
 - hosts: alisson
   tasks:
-    - name: Create VirtualBox VM
+    - name: Creating VirtualBox VM
       shell: vboxmanage clonevm BaseUbuntu14 --name VMScaling --register
+    - name: StartVM
+      shell: vboxmanage startvm VMScaling
