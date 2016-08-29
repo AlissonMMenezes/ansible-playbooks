@@ -1,0 +1,5 @@
+---
+- hosts: alisson
+  tasks:
+    - name: Executing apt-get update
+      shell: apt-get update
