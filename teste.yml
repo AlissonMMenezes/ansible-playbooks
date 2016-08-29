@@ -2,4 +2,4 @@
 - hosts: alisson
   tasks:
     - name: Executing apt-get update
-      shell: apt-get update
+      shell: echo "Executando tarefa no ansible"
